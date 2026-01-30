@@ -52,9 +52,22 @@ services:
       - WEBHOOK_TUNNEL_URL=https://gymsbro.com
       - N8N_SSL_CERT=${N8N_SSL_CERT}
       - N8N_SSL_KEY=${N8N_SSL_KEY}
-    ports:
-      - 80:5678
+    expose:
+      - "5678"
     links:
       - postgres
     volumes:
       - n8n_storage:/home/node/.n8n
+
+  nginx:
+    image: nginx
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - /etc/letsencrypt/live/gymsbro.com/fullchain.pem:/etc/nginx/certs/fullchain.pem:ro
+      - /etc/letsencrypt/live/gymsbro.com/privkey.pem:/etc/nginx/certs/privkey.pem:ro
+    depends_on:
+      - n8n
