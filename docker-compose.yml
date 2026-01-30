@@ -51,7 +51,7 @@ services:
       - WEBHOOK_URL=https://guidable-grudgingly-collin.ngrok-free.dev
       - WEBHOOK_TUNNEL_URL=https://guidable-grudgingly-collin.ngrok-free.dev
     ports:
-      - 5678:5678
+      - 80:5678
     links:
       - postgres
     volumes:
