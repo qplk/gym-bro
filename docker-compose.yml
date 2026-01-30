@@ -48,8 +48,10 @@ services:
       - DB_POSTGRESDB_DATABASE=${POSTGRES_DB}
       - DB_POSTGRESDB_USER=${POSTGRES_NON_ROOT_USER}
       - DB_POSTGRESDB_PASSWORD=${POSTGRES_NON_ROOT_PASSWORD}
-      - WEBHOOK_URL=https://guidable-grudgingly-collin.ngrok-free.dev
-      - WEBHOOK_TUNNEL_URL=https://guidable-grudgingly-collin.ngrok-free.dev
+      - WEBHOOK_URL=https://gymsbro.com
+      - WEBHOOK_TUNNEL_URL=https://gymsbro.com
+      - N8N_SSL_CERT=${N8N_SSL_CERT}
+      - N8N_SSL_KEY=${N8N_SSL_KEY}
     ports:
       - 80:5678
     links:
