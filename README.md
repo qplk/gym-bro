@@ -5,7 +5,9 @@
 
 ### Backup
 1. Run ```mkdir /home/gymbro/pgdata```
-2. Run ```mkdir /home/gymbro/n8ndata```
+2. Run ```sudo chown -R 999:999 /home/gymbro/pgdata```
+3. Run ```sudo chmod -R 700 /home/gymbro/pgdata```
+4. Run ```mkdir /home/gymbro/n8ndata```
 
 ### SSL
 1. Install certbot ```sudo apt-get install certbot python3-certbot-apache```
